@@ -1,0 +1,336 @@
+:root {
+  /* primary colors */
+  --bg-main: hsl(227, 100%, 98%);
+  --bg-content: hsl(0, 0%, 100%);
+  --text-color: hsl(217, 35%, 45%);
+  --box-shadow: 0px 16px 30px -10px hsla(227, 46%, 50%, 0.2);
+  --White: hsl(0, 0%, 100%);
+
+  /* Btn */
+  --btn: hsl(212, 100%, 50%);
+  --btn-hover: hsl(212, 100%, 69%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-color);
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 0 5rem;
+  width: 100%;
+}
+
+.status-text {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo-text {
+  display: flex;
+}
+
+.header-text {
+  padding-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.header-logo {
+  margin-top: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+.clear-cache-btn {
+  padding: 1rem 1rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  background-color: var(--btn);
+  border: none;
+  border-radius: 0.625rem;
+  color: var(--White);
+  font-weight: bold;
+}
+
+.clear-cache-btn:hover {
+  background-color: var(--btn-hover);
+  cursor: pointer;
+}
+
+/* Input Fields */
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0;
+  margin: 0 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.input-container input {
+  padding: 0.7rem 3rem;
+  margin: 0.5rem 0;
+  width: 80%;
+
+  font-size: 1.2rem;
+  color: var(--text-color);
+  border: none;
+  background: none;
+  outline: none;
+
+  border-radius: 0.5rem;
+  background-color: var(--bg-content);
+  box-shadow: var(--box-shadow);
+}
+
+.input-container input::placeholder {
+  color: var(--text-color);
+}
+
+.input-container select {
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  min-width: 9rem;
+  width: 20%;
+
+  font-size: 1.2rem;
+  color: var(--text-color);
+  border: none;
+  background: none;
+  outline: none;
+
+  border-radius: 0.5rem;
+  background-color: var(--bg-content);
+  box-shadow: var(--box-shadow);
+}
+
+/* Results Grid */
+.results-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 16px auto;
+  width: 100%;
+}
+
+/* Default: 1 column when width < 992px */
+.results-grid {
+  grid-template-columns: 1fr;
+}
+
+/* 2 columns when width <= 1200px and >= 992px */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .results-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 3 columns when width > 1200px */
+@media (min-width: 1200px) {
+  .results-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* User Card */
+.user-card {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--bg-content);
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+}
+
+.profile-avatar {
+  max-height: 5rem;
+  border-radius: 50%;
+}
+
+.profile-information {
+  width: 100%;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.user-name-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--user-name-color);
+}
+
+.joined-date-continer {
+  float: right;
+  padding-top: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.user-id {
+  color: var(--Blue);
+  text-decoration: none;
+}
+
+.user-bio {
+  line-height: 1.5rem;
+  opacity: 0.75;
+  margin-top: 1.5rem;
+}
+
+.user-work-information {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  margin: 1rem 0rem;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 1rem;
+  background-color: var(--bg-main);
+  transition: all 0.5s ease-in-out;
+}
+
+.repo-container,
+.followers-container,
+.following-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.repos,
+.followers,
+.following {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--number-color);
+  margin-top: 0.625rem;
+}
+
+.user-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-links > div {
+  width: 48%;
+}
+
+.user-location,
+.user-website-link,
+.user-company {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.user-website-link a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.link-color {
+  color: var(--text-color);
+}
+
+/* Repository Card */
+.repository-card {
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  background-color: var(--bg-content);
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+}
+
+.repository-card h3 {
+  font-size: 1.2rem;
+  margin: 8px 0;
+}
+
+.repository-card p {
+  color: #666;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.repository-card .repo-info {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0;
+}
+
+.user-card a,
+.repository-card a {
+  color: #1279ef;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.repository-card span {
+  font-weight: bold;
+}
